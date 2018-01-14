@@ -22,5 +22,11 @@ Une fois installé, il ne reste plus qu'à vous rendre sur :
 ```bash
 localhost:8080
 ```
+Les accès sont :
 
 
+```bash
+user : user
+password : user
+DB Name : zend
+```
