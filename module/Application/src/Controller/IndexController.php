@@ -10,6 +10,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Entity\Meetup;
+use Doctrine\ORM\EntityRepository;
 
 class IndexController extends AbstractActionController
 {
@@ -19,18 +20,18 @@ class IndexController extends AbstractActionController
      */
     private $entityManager;
 
-    public function __construct($entityManager)
+    public function __construct(EntityRepository $meetupRepository)
     {
-        $this->entityManager = $entityManager;
+        $this->meetupRepository = $meetupRepository;
     }
 
     public function indexAction()
     {
-        $meetup = $this->entityManager;
+        $meetup = $this->meetupRepository->findAll();
 
         // Render the view template
         return new ViewModel([
-            'meetup' => $meetup
+            'meetups' => $meetup
         ]);
     }
 }
