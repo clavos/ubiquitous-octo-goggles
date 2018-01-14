@@ -15,7 +15,7 @@ class IndexControllerFactory implements FactoryInterface
     public function __invoke(ContainerInterface $container,
                              $requestedName, array $options = null)
     {
-        $entityManager = $container->get(EntityManager::class)->getRepository(Meetup::class);
+        $entityManager = $container->get(EntityManager::class)->getRepository(Meetup::class)->findAll();
 
         // Instantiate the controller and inject dependencies
         return new IndexController($entityManager);

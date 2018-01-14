@@ -26,7 +26,7 @@ class IndexController extends AbstractActionController
 
     public function indexAction()
     {
-        $meetup = $this->entityManager->findAll();
+        $meetup = $this->entityManager;
 
         // Render the view template
         return new ViewModel([
