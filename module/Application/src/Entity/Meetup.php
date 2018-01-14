@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Attention : Doctrine génère des classes proxy qui étendent les entités, celles-ci ne peuvent donc pas être finales !
  *
  * @package Application\Entity
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="\Application\Repository\MeetupRepository")
  * @ORM\Table(name="Meetup")
  */
 class Meetup
