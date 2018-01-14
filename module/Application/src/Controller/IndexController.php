@@ -18,7 +18,7 @@ class IndexController extends AbstractActionController
      * Entity manager.
      * @var \Doctrine\ORM\EntityRepository
      */
-    private $entityManager;
+    private $meetupRepository;
 
     public function __construct(EntityRepository $meetupRepository)
     {
