@@ -16,7 +16,7 @@ class IndexController extends AbstractActionController
 {
     /**
      * Entity manager.
-     * @var \Doctrine\ORM\EntityManager
+     * @var \Doctrine\ORM\EntityRepository
      */
     private $entityManager;
 
