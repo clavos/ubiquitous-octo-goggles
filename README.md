@@ -1,4 +1,4 @@
-# ZendSkeletonApplication
+# Projet Zend
 
 ## Introduction
 
@@ -8,7 +8,8 @@ Ceci est le dépôt Git du projet Zend demandé en cours à l'ESGI.
 
 
 ```bash
-$ composer create-project -sdev zendframework/skeleton-application path/to/install
+$ composer install
+$ docker-compose up -d --build
 ```
 
 Une fois installé, il ne reste plus qu'à vous rendre sur :
