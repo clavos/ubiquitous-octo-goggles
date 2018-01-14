@@ -26,12 +26,11 @@ class IndexController extends AbstractActionController
 
     public function indexAction()
     {
-        // Get recent meetup
-        $meetups = $this->entityManager;
+        $meetup = $this->entityManager->findAll();
 
         // Render the view template
         return new ViewModel([
-            'meetups' => $meetups
+            'meetup' => $meetup
         ]);
     }
 }
