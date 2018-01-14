@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="6720687b-b32b-4f00-9e76-b90f61d29256" />
+          <option name="name" value="zend" />
+          <option name="urls">
+            <array>
+              <option value="file://$USER_HOME$/Downloads/zend.sql" />
+            </array>
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
+</project>
