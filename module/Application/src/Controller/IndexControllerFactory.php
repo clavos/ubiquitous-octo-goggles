@@ -1,23 +1,22 @@
 <?php
-namespace Application\Controller\Factory;
+namespace Application\Controller;
 
 use Interop\Container\ContainerInterface;
-use Zend\ServiceManager\Factory\FactoryInterface;
-use Application\Controller\IndexController;
 use Doctrine\ORM\EntityManager;
+use Application\Entity\Meetup;
+
 
 /**
  * This is the factory for IndexController. Its purpose is to instantiate the
  * controller.
  */
-class IndexControllerFactory implements FactoryInterface
+class IndexControllerFactory
 {
-    public function __invoke(ContainerInterface $container,
-                             $requestedName, array $options = null)
+    public function __invoke(ContainerInterface $container) : IndexController
     {
-        $entityManager = $container->get(EntityManager::class)->getRepository(Meetup::class);
+        $meetups = $container->get(EntityManager::class)->getRepository(Meetup::class);
 
         // Instantiate the controller and inject dependencies
-        return new IndexController($entityManager);
+        return new IndexController($meetups);
     }
 }
