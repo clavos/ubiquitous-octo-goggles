@@ -75,7 +75,7 @@ return [
             'orm_default' => [
                 'drivers' => [
                     // register `application_driver` for any entity under namespace `Application\Entity`
-                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                    __NAMESPACE__ . '\Entity' => 'application_driver',
                 ],
             ],
         ],

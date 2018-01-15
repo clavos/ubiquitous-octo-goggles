@@ -20,11 +20,11 @@ return [
             'orm_default' => [
                 'driverClass' => Driver::class,
                 'params' => [
-                    'host'     => $_ENV['SKEL_DB_HOST'] ?? 'localhost',
+                    'host'     => $_ENV['SKEL_DB_HOST'] ?? 'database',
                     'port'     => $_ENV['SKEL_DB_PORT'] ?? '3306',
-                    'user'     => $_ENV['SKEL_DB_USER'] ?? 'user',
-                    'password' => $_ENV['SKEL_DB_PASS'] ?? 'user',
-                    'dbname'   => $_ENV['SKEL_DB_NAME'] ?? 'zend',
+                    'user'     => $_ENV['SKEL_DB_USER'] ?? 'demo',
+                    'password' => $_ENV['SKEL_DB_PASS'] ?? 'demo',
+                    'dbname'   => $_ENV['SKEL_DB_NAME'] ?? 'demo',
                 ],
             ],
         ],

@@ -18,8 +18,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Meetup
 {
     /**
-     * @ORM\idMeetup
-     * @ORM\Column(type="int", length=20)
+     * @ORM\Id
+     * @ORM\Column(type="string", length=20)
      **/
     private $idmeetup;
 
@@ -49,15 +49,15 @@ class Meetup
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getId() : int
+    public function getId() : string
     {
         return $this->idmeetup;
     }
 
     /**
-     * @param int $idmeetup
+     * @param string $idmeetup
      */
     public function setId(string $idmeetup) : void
     {
@@ -123,7 +123,7 @@ class Meetup
     /**
      * @param string $datefin
      */
-    public function setDescription(string $datefin) : void
+    public function setDatefin(string $datefin) : void
     {
         $this->datefin = $datefin;
     }
