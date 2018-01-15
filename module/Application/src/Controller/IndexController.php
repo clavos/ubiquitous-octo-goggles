@@ -9,8 +9,13 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Application\Entity\Meetup;
+use Application\Form\MeetupForm;
+use Zend\Http\PhpEnvironment\Request;
 use Doctrine\ORM\EntityRepository;
+use Application\Entity\Meetup;
+use DoctrineModule\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
+
+
 
 class IndexController extends AbstractActionController
 {
@@ -20,7 +25,17 @@ class IndexController extends AbstractActionController
      */
     private $meetupRepository;
 
-    public function __construct(EntityRepository $meetupRepository)
+    /**
+     * @var MeetupForm
+     */
+    private $meetupForm;
+
+    /**
+     * @var DoctrineHydrator
+     */
+    private $hydrator;
+
+    public function __construct(EntityRepository $meetupRepository, MeetupForm $meetupForm, DoctrineHydrator $hydrator)
     {
         $this->meetupRepository = $meetupRepository;
     }
@@ -32,6 +47,32 @@ class IndexController extends AbstractActionController
         // Render the view template
         return new ViewModel([
             'meetups' => $meetup
+        ]);
+    }
+
+    public function addAction()
+    {
+        $form = $this->meetupForm;
+
+        /* @var $request Request */
+        $request = $this->getRequest();
+
+        if($request->isPost()){
+
+            //$form->setInputFilter($this->customInputFilter);
+            $form->setData($request->getPost());
+
+            if($form->isValid()){
+                $meetup = new Meetup();
+                $meetup = $this->hydrator->hydrate($form->getData(),$meetup);
+                $this->meetupRepository->add($meetup);
+                return $this->redirect()->toRoute('meetups');
+            }
+        }
+        $form->prepare();
+
+        return new ViewModel([
+            'form' => $form,
         ]);
     }
 }

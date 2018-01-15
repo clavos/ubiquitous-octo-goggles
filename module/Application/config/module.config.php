@@ -8,7 +8,7 @@
 namespace Application;
 
 use Zend\Router\Http\Literal;
-use Zend\Router\Http\Segment;
+use Application\Form\MeetupForm;
 use Zend\ServiceManager\Factory\InvokableFactory;
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 
@@ -24,15 +24,17 @@ return [
                         'action'     => 'index',
                     ],
                 ],
-            ],
-            'application' => [
-                'type'    => Segment::class,
-                'options' => [
-                    'route'    => '/application[/:action]',
-                    'defaults' => [
-                        'controller' => Controller\IndexController::class,
-                        'action'     => 'index',
-                    ],
+                'may_terminate' =>true,
+                'child_routes' => [
+                    'new' => [
+                        'type' => Literal::class,
+                        'options' => [
+                            'route'    => '/add',
+                            'defaults' => [
+                                'action'     => 'add',
+                            ],
+                        ],
+                    ]
                 ],
             ],
         ],
@@ -42,7 +44,11 @@ return [
             Controller\IndexController::class => Controller\IndexControllerFactory::class,
         ],
     ],
-
+    'service_manager' => [
+        'factories' => [
+            MeetupForm::class => InvokableFactory::class,
+        ],
+    ],
     'view_manager' => [
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
@@ -54,6 +60,7 @@ return [
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
+            'application/index/add' => __DIR__ . '/../view/application/index/add.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
