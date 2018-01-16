@@ -83,24 +83,6 @@ class MeetupForm extends Form
             ],
         ]);
 
-        //Organisateurs
-        $this->add([
-            'type' => EntitySelect::class,
-            'required' => false,
-            'name' => 'organisateur',
-            'options' => [
-                'label' => 'Organisateur',
-                'object_manager' =>  $entityManager,
-                'target_class' => Organisateurs::class,
-                'empty_option' => 'Choisir un organisateur',
-                'label_generator' => function ($targetEntity) {
-                    return $targetEntity->getNom() . ' - ' . $targetEntity->getPrenom();
-                },
-            ],
-            'attributes' => [
-                'class' => 'form-control',
-            ],
-        ]);
 
         //Submit
         $this->add([

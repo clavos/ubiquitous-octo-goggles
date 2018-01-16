@@ -4,10 +4,23 @@
 $form = $this->form; /* @var $form \Zend\Form\Form */
 ?>
 
+<p>
 <?= $this->form()->openTag($form); ?>
-
+</p>
+<p>
 <?= $this->formRow($form->get('title')) ?>
-
+</p>
+<p>
+<?= $this->formRow($form->get('description')) ?>
+</p>
+<p>
+<?= $this->formRow($form->get('date_start')) ?>
+</p>
+<p>
+<?= $this->formRow($form->get('date_end')) ?>
+</p>
+<p>
 <?= $this->formInput($form->get('submit')) ?>
+</p>
 
 <?= $this->form()->closeTag($form); ?>
