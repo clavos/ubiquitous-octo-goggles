@@ -12,7 +12,12 @@
     <p>
         <?= $this->escapeHtml($meetup->getDescription()); ?>
     </p>
-
+    <p>
+        Date de début : <?= $this->escapeHtml($meetup->getDatedeb()); ?>
+    </p>
+    <p>
+        Date de fin : <?= $this->escapeHtml($meetup->getDescrgetDatefin()); ?>
+    </p>
 <?php endforeach; ?>
 </ul>
 

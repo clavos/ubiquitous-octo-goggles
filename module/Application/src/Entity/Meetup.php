@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 /**
  * Class Meetup
@@ -35,12 +36,12 @@ class Meetup
     private $description = '';
 
     /**
-     * @ORM\Column(type="date", nullable=false)
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $datedeb;
 
     /**
-     * @ORM\Column(type="date", nullable=false)
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $datefin;
 
@@ -93,7 +94,7 @@ class Meetup
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
     public function getDatedeb() : string
     {
@@ -101,7 +102,7 @@ class Meetup
     }
 
     /**
-     * @param string $datedeb
+     * @param \DateTime $datedeb
      */
     public function setDatedeb(string $datedeb)
     {
@@ -109,7 +110,7 @@ class Meetup
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
     public function getDatefin() : string
     {
@@ -117,7 +118,7 @@ class Meetup
     }
 
     /**
-     * @param string $datefin
+     * @param \DateTime $datefin
      */
     public function setDatefin(string $datefin)
     {
