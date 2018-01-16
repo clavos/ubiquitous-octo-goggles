@@ -19,7 +19,8 @@ class Participants
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="string", length=20)
+     * @ORM\GeneratedValue(strategy="UUID")
+     * @ORM\Column(type="string", length=40)
      **/
     private $idmeetup;
 
@@ -34,11 +35,6 @@ class Participants
     private $prenom;
 
 
-    public function __construct()
-    {
-        $this->idmeetup = Uuid::uuid4()->toString();
-    }
-
     /**
      * @return string
      */
@@ -50,7 +46,7 @@ class Participants
     /**
      * @param string $idmeetup
      */
-    public function setId(string $idmeetup) : void
+    public function setId(string $idmeetup)
     {
         $this->idmeetup = $idmeetup;
     }
@@ -67,7 +63,7 @@ class Participants
     /**
      * @param string $nom
      */
-    public function setNom(string $nom) : void
+    public function setNom(string $nom)
     {
         $this->nom = $nom;
     }
@@ -83,7 +79,7 @@ class Participants
     /**
      * @param string $prenom
      */
-    public function setPrenom(string $prenom) : void
+    public function setPrenom(string $prenom)
     {
         $this->prenom = $prenom;
     }

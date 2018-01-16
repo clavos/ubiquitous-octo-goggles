@@ -19,17 +19,18 @@ class Meetup
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="string", length=20)
+     * @ORM\GeneratedValue(strategy="UUID")
+     * @ORM\Column(type="string", length=40)
      **/
     private $idmeetup;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=false)
+     * @ORM\Column(type="string", length=300, nullable=false)
      */
     private $titre;
 
     /**
-     * @ORM\Column(type="string", length=500, nullable=true)
+     * @ORM\Column(type="string", length=1500, nullable=true)
      */
     private $description = '';
 
@@ -43,11 +44,6 @@ class Meetup
      */
     private $datefin;
 
-    public function __construct()
-    {
-        $this->idmeetup = Uuid::uuid4()->toString();
-    }
-
     /**
      * @return string
      */
@@ -59,7 +55,7 @@ class Meetup
     /**
      * @param string $idmeetup
      */
-    public function setId(string $idmeetup) : void
+    public function setId(string $idmeetup)
     {
         $this->idmeetup = $idmeetup;
     }
@@ -75,7 +71,7 @@ class Meetup
     /**
      * @param string $titre
      */
-    public function setTitre(string $titre) : void
+    public function setTitre(string $titre)
     {
         $this->titre = $titre;
     }
@@ -91,7 +87,7 @@ class Meetup
     /**
      * @param string $description
      */
-    public function setDescription(string $description) : void
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }
@@ -107,7 +103,7 @@ class Meetup
     /**
      * @param string $datedeb
      */
-    public function setDatedeb(string $datedeb) : void
+    public function setDatedeb(string $datedeb)
     {
         $this->datedeb = $datedeb;
     }
@@ -123,7 +119,7 @@ class Meetup
     /**
      * @param string $datefin
      */
-    public function setDatefin(string $datefin) : void
+    public function setDatefin(string $datefin)
     {
         $this->datefin = $datefin;
     }

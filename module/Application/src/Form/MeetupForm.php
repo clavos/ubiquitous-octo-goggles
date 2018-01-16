@@ -32,7 +32,7 @@ class MeetupForm extends Form
         //Titre
         $this->add([
             'type' => Text::class,
-            'name' => 'title',
+            'name' => 'titre',
             'options' => [
                 'label' => 'Titre',
             ],
