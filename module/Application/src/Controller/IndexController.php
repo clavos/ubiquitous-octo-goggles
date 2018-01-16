@@ -66,7 +66,7 @@ class IndexController extends AbstractActionController
                 $meetup = new Meetup();
                 $meetup = $this->hydrator->hydrate($form->getData(),$meetup);
                 $this->meetupRepository->add($meetup);
-                return $this->redirect()->toRoute('meetups');
+                return $this->redirect()->toRoute('');
             }
         }
         $form->prepare();

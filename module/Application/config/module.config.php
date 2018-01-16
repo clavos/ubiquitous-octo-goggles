@@ -26,11 +26,12 @@ return [
                 ],
                 'may_terminate' =>true,
                 'child_routes' => [
-                    'new' => [
+                    'add' => [
                         'type' => Literal::class,
                         'options' => [
                             'route'    => '/add',
                             'defaults' => [
+                                'controller' => Controller\IndexController::class,
                                 'action'     => 'add',
                             ],
                         ],

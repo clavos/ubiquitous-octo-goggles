@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Meetup\Form;
+namespace Application\Form;
 
 use Application\Entity\Meetup;
 use Application\Entity\Organisateurs;
