@@ -24,18 +24,15 @@ return [
                         'action'     => 'index',
                     ],
                 ],
-                'may_terminate' =>true,
-                'child_routes' => [
-                    'add' => [
-                        'type' => Literal::class,
-                        'options' => [
-                            'route'    => '/add',
-                            'defaults' => [
-                                'controller' => Controller\IndexController::class,
-                                'action'     => 'add',
-                            ],
-                        ],
-                    ]
+            ],
+            'add' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route'    => '/add',
+                    'defaults' => [
+                        'controller' => Controller\IndexController::class,
+                        'action'     => 'add',
+                    ],
                 ],
             ],
         ],

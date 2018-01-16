@@ -38,6 +38,8 @@ class IndexController extends AbstractActionController
     public function __construct(EntityRepository $meetupRepository, MeetupForm $meetupForm, DoctrineHydrator $hydrator)
     {
         $this->meetupRepository = $meetupRepository;
+        $this->meetupForm = $meetupForm;
+        $this->hydrator = $hydrator;
     }
 
     public function indexAction()
@@ -66,7 +68,7 @@ class IndexController extends AbstractActionController
                 $meetup = new Meetup();
                 $meetup = $this->hydrator->hydrate($form->getData(),$meetup);
                 $this->meetupRepository->add($meetup);
-                return $this->redirect()->toRoute('');
+                return $this->redirect()->toRoute('meetups');
             }
         }
         $form->prepare();
